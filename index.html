@@ -1,0 +1,266 @@
+<html>
+  <head>
+    <title>Railcar : A one-click, isolated Ruby and Rails environment</title>
+
+    <style>
+      BODY {
+        padding: 0px;
+        margin: 0px;
+        font-family: Helvetica, sans-serif;
+        background: #fffceb;
+      }
+
+      .contained {
+        width: 800px;
+        margin: auto;
+      }
+
+      #top {
+        background: white;
+      }
+
+      #topline {
+        padding: 40px 0px;
+      }
+
+      #topline h1 {
+        padding-top: 40px;
+        text-align: center;
+        font-weight: normal;
+        font-size: 24pt;
+      }
+
+      #middle {
+        text-align: center;
+        background: #a90000;
+        clear: both;
+        border-top: 2px solid #c90000;
+        padding: 20px;
+        border-bottom: 2px solid #890000;
+      }
+
+      .bootstrap {
+        -moz-box-shadow:inset 0px 1px 0px 0px #a4e271;
+        -webkit-box-shadow:inset 0px 1px 0px 0px #a4e271;
+        box-shadow:inset 0px 1px 0px 0px #a4e271;
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #89c403), color-stop(1, #77a809) );
+        background:-moz-linear-gradient( center top, #89c403 5%, #77a809 100% );
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#89c403', endColorstr='#77a809');
+        background-color:#89c403;
+        -moz-border-radius:6px;
+        -webkit-border-radius:6px;
+        border-radius:6px;
+        border:1px solid #74b807;
+        display:inline-block;
+        color:#ffffff;
+        font-size:14pt;
+        padding:6px 24px;
+        text-decoration:none;
+        text-shadow:1px 1px 0px #528009;
+      }
+
+      .bootstrap:hover {
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #77a809), color-stop(1, #89c403) );
+        background:-moz-linear-gradient( center top, #77a809 5%, #89c403 100% );
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77a809', endColorstr='#89c403');
+        background-color:#77a809;
+      }
+
+      .bootstrap:active {
+        position:relative;
+        top:1px;
+      }
+
+      .bundle {
+        -moz-box-shadow:inset 0px 1px 0px 0px #cae3fc;
+        -webkit-box-shadow:inset 0px 1px 0px 0px #cae3fc;
+        box-shadow:inset 0px 1px 0px 0px #cae3fc;
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #4197ee) );
+        background:-moz-linear-gradient( center top, #79bbff 5%, #4197ee 100% );
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#4197ee');
+        background-color:#79bbff;
+        -moz-border-radius:6px;
+        -webkit-border-radius:6px;
+        border-radius:6px;
+        border:1px solid #469df5;
+        display:inline-block;
+        color:#ffffff;
+        font-size:14pt;
+        padding:6px 24px;
+        text-decoration:none;
+        text-shadow:1px 1px 0px #287ace;
+      }
+
+      .bundle:hover {
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4197ee), color-stop(1, #79bbff) );
+        background:-moz-linear-gradient( center top, #4197ee 5%, #79bbff 100% );
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4197ee', endColorstr='#79bbff');
+        background-color:#4197ee;
+      }
+
+      .bundle:active {
+        position:relative;
+        top:1px;
+      }
+
+      .button-container {
+        width: 360px;
+        float: right;
+        text-align: center;
+        color: #666;
+        padding: 0px 20px;
+      }
+
+      #buttons {
+        padding-top: 10px;
+      }
+
+      .disabled {
+        -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+        -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+        box-shadow:inset 0px 1px 0px 0px #ffffff;
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+        background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+        background-color:#ededed;
+        -moz-border-radius:6px;
+        -webkit-border-radius:6px;
+        border-radius:6px;
+        border:1px solid #dcdcdc;
+        display:inline-block;
+        color:#bbb;
+        font-size: 14pt;
+        padding:6px 24px;
+        text-decoration:none;
+        text-shadow:1px 1px 0px #ffffff;
+      }
+
+      .disabled:hover {
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+        background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+        background-color:#dfdfdf;
+      }
+
+      .disabled:active {
+        position:relative;
+        top:1px;
+      }
+
+      #announce {
+        text-align: center;
+        line-height: 1.35;
+        background: #ffc;
+        border: 1px solid #fed;
+        border-left: 0px; border-right: 0px;
+        padding: 20px;
+      }
+
+      .quieter {
+        color: #666;
+        font-size: 10pt;
+      }
+
+      #bottom h2 {
+        margin-top: 30px;
+        font-size: 14pt;
+        font-weight: normal;
+        color: #333;
+      }
+
+      #bottom .info-item {
+        background: #fff;
+        border: 1px solid #f1f1db;
+        padding: 20px;
+      }
+
+      #bottom .info-item p {
+        line-height: 1.8;
+        text-align: justify;
+      }
+
+      #last {
+        color: #cfccbb;
+        font-size: 8pt;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .quote {
+        color: white;
+        font-weight: bold;
+      }
+
+      .attribution {
+        color: #e97777;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="top">
+      <div class="contained" id="topline">
+        <img src="images/logo.png" />
+
+        <h1>Get started with Rails in one click.</h1>
+
+        <p id="announce"><strong>We're working hard on shipping!  You can <a href="http://github.com/arcturo/Railcar">watch Railcar on Github</a> to see the progress.</strong><br /><span class="quieter">We will be shipping a stable, downloadable package before RailsConf, so keep your eyes peeled.</span></p>
+
+        <div id="buttons">
+          <div class="button-container">
+            <a href="#" class="disabled">Download Bundle</a>
+            <p>Get everything bundled in one download.  Just download and go! (about 45mb)</p>
+          </div>
+
+          <div class="button-container">
+            <a href="#" class="disabled">Download Installer</a><br />
+            <p>Get an installer that you'll bootstrap with a step-by-step installer. (about 30mb)</p>
+          </div>
+        </div>
+      </div>
+      <div style='clear: both;'>&nbsp;</div>
+    </div>
+
+    <div id="middle">
+      <div class="contained">
+       <span class="quote">&ldquo;Railcar is simple and amazing.&rdquo;</span> <span class="attribution">&mdash; The Next New Rails Developer You Meet</span>
+      </div>
+    </div>
+
+    <div id="bottom">
+      <div class="contained">
+        <h2>Get started quickly</h2>
+
+        <div class="info-item">
+          <img src="images/bootstrap.png" style="width: 200px; float: right; margin-left: 10px;" />
+          
+          <p>Get running on Rails <strong>no compiler required</strong> (though you <em>can</em> install from source if you'd like).  From the start, Railcar will bootstrap you with all the essentials to get started with Rails with minimal hassle.  Simply click a button and it's all installed to the application bundle.  Done with Rails or want to move to another stack?  Simply delete the application bundle and it all disappears.</p>
+          
+          <p><strong>You can also install other, non-Ruby packages like databases and languages.</strong>  For example, you might be curious about NoSQL databases like Redis or Clojure.  Install them with the package manager (powered by a sequestered installation of homebrew which won't bother your system-wide install should you have one) and have them up and running in no time!</p>
+
+          <img src="images/rubies.png" style="width: 140px; float: left; margin-right: 10px;" />
+
+          <p><strong>Railcar's streamlined UI makes it simple to learn about and install Ruby versions.</strong>  As you learn more about Rails and Ruby, you might want to check out alternative interpreters like Rubinius or integrate with some of your existing Java code with JRuby.  No problem.  With one click, you can build or install one of these interpreters and you can immediately start using it with your Rails applications.</p>
+        </div>
+
+        <h2>Get Real World&trade; tools</h2>
+
+        <div class="info-item">
+          <img src="images/package.png" style="width: 220px; float: right; margin-left: 20px;" />
+
+          <p>While Railcar's UI helps you through the tough and confusing parts of Rails and web development, <strong>under the hood Railcar uses the real tools that real Rails developers use everyday</strong>.  Once you're comfortable, you can drop straight to the command-line and start using them like normal.  Using tools like homebrew, RbEnv, and others will make contributing to OSS and your team at work that much easier!</p>
+        </div>
+
+        <h2>Transition with ease</h2>
+
+        <div class="info-item">
+          <p>Need a more custom setup?  Join a team with a strictly defined workflow?  No problem. <strong>You can easily transfer your Railcar environment to a system-wide install with a single click.</strong>  Railcar will place your homebrew packages in the proper place and install your Ruby to a system install of RbEnv or (when the <code>rvm mount</code> feature is implemented) RVM.</p>
+        </div>
+
+        <div id="last">
+          <strong>Railcar</strong> &mdash; Simple, one-click Rails environment
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
