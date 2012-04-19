@@ -1,9 +1,12 @@
+<!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>Railcar : A one-click, isolated Ruby and Rails environment</title>
+    <meta name="description" content="Get started with Ruby on Rails in one click.">
 
-    <style>
-      BODY {
+    <style type="text/css">
+      body {
         padding: 0px;
         margin: 0px;
         font-family: Helvetica, sans-serif;
@@ -200,11 +203,11 @@
   <body>
     <div id="top">
       <div class="contained" id="topline">
-        <img src="images/logo.png" />
+        <img src="images/logo.png" alt="Railcar"/>
 
         <h1>Get started with Rails in one click.</h1>
 
-        <p id="announce"><strong>We're working hard on shipping!  You can <a href="http://github.com/arcturo/Railcar">watch Railcar on Github</a> to see the progress.</strong><br /><span class="quieter">We will be shipping a stable, downloadable package before RailsConf, so keep your eyes peeled.</span></p>
+        <p id="announce"><strong>We're working hard on shipping!  You can <a href="http://github.com/arcturo/Railcar">watch Railcar on Github</a> to see the progress.</strong><br><span class="quieter">We will be shipping a stable, downloadable package before RailsConf, so keep your eyes peeled.</span></p>
 
         <div id="buttons">
           <div class="button-container">
@@ -213,7 +216,7 @@
           </div>
 
           <div class="button-container">
-            <a href="#" class="disabled">Download Installer</a><br />
+            <a href="#" class="disabled">Download Installer</a><br>
             <p>Get an installer that you'll bootstrap with a step-by-step installer. (about 30mb)</p>
           </div>
         </div>
@@ -232,13 +235,13 @@
         <h2>Get started quickly</h2>
 
         <div class="info-item">
-          <img src="images/bootstrap.png" style="width: 200px; float: right; margin-left: 10px;" />
+          <img src="images/bootstrap.png" alt="Bootstrap installation" style="width: 200px; float: right; margin-left: 10px;" />
           
           <p>Get running on Rails <strong>no compiler required</strong> (though you <em>can</em> install from source if you'd like).  From the start, Railcar will bootstrap you with all the essentials to get started with Rails with minimal hassle.  Simply click a button and it's all installed to the application bundle.  Done with Rails or want to move to another stack?  Simply delete the application bundle and it all disappears.</p>
           
           <p><strong>You can also install other, non-Ruby packages like databases and languages.</strong>  For example, you might be curious about NoSQL databases like Redis or Clojure.  Install them with the package manager (powered by a sequestered installation of homebrew which won't bother your system-wide install should you have one) and have them up and running in no time!</p>
 
-          <img src="images/rubies.png" style="width: 140px; float: left; margin-right: 10px;" />
+          <img src="images/rubies.png" alt="Choice of Rubies" style="width: 140px; float: left; margin-right: 10px;">
 
           <p><strong>Railcar's streamlined UI makes it simple to learn about and install Ruby versions.</strong>  As you learn more about Rails and Ruby, you might want to check out alternative interpreters like Rubinius or integrate with some of your existing Java code with JRuby.  No problem.  With one click, you can build or install one of these interpreters and you can immediately start using it with your Rails applications.</p>
         </div>
@@ -246,7 +249,7 @@
         <h2>Get Real World&trade; tools</h2>
 
         <div class="info-item">
-          <img src="images/package.png" style="width: 220px; float: right; margin-left: 20px;" />
+          <img src="images/package.png" alt="Customize Packages" style="width: 220px; float: right; margin-left: 20px;">
 
           <p>While Railcar's UI helps you through the tough and confusing parts of Rails and web development, <strong>under the hood Railcar uses the real tools that real Rails developers use everyday</strong>.  Once you're comfortable, you can drop straight to the command-line and start using them like normal.  Using tools like homebrew, RbEnv, and others will make contributing to OSS and your team at work that much easier!</p>
         </div>
